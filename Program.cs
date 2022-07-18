@@ -6,47 +6,16 @@ namespace ExquisiteCorpse
     {
         static void Main(string[] args)
         {
+            // BuildACreature("bug", "monster", "ghost");
             RandomMode();
         }
 
         static void BuildACreature(string head, string body, string feet) 
         {
-            switch (head)
-            {
-                case "ghost":
-                    GhostHead();
-                    break;
-                case "bug":
-                    BugHead();
-                    break;
-                case "monster":
-                    MonsterHead();
-                    break;
-            }
-            switch (body)
-            {
-                case "ghost":
-                    GhostBody();
-                    break;
-                case "bug":
-                    BugBody();
-                    break;
-                case "monster":
-                    MonsterBody();
-                    break;
-            }
-            switch (feet)
-            {
-                case "ghost":
-                    GhostFeet();
-                    break;
-                case "bug":
-                    BugFeet();
-                    break;
-                case "monster":
-                    MonsterFeet();
-                    break;
-            }
+            int headNum = TranslateToNumber(head);
+            int bodyNum = TranslateToNumber(body);
+            int feetNum = TranslateToNumber(feet);
+            SwitchCase(headNum, bodyNum, feetNum);
         }
 
         static void RandomMode()
@@ -95,6 +64,21 @@ namespace ExquisiteCorpse
                 case 3:
                     MonsterFeet();
                     break;
+            }
+        }
+
+        static int TranslateToNumber(string creature)
+        {
+            switch (creature)
+            {
+                case "ghost":
+                    return 1;
+                case "bug":
+                    return 2;
+                case "monster":
+                    return 3;
+                default:
+                    return 1;
             }
         }
 
